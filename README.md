@@ -24,7 +24,7 @@ $ ./install.sh
 Use executable file ``RGBBlur`` to blur RGB images.
 
 ```bash
-$ ./RGBBlur input_image output_image [kernel_width] [gaussian_std]
+$ ./RGBBlur input_image [output_image] [kernel_width] [gaussian_std]
 ```
 
 For example,
