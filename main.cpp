@@ -8,10 +8,15 @@
 #include <cuda_runtime.h>
 
 #include "utils.h"
+#include "timer.h"
 #include "blur.h"
 
 int main(int argc, char ** argv)
 {
+    GpuTimer timer;
+
+    timer.start();
+
     std::string input_filepath;
     std::string output_filepath;
 
@@ -123,6 +128,12 @@ int main(int argc, char ** argv)
     free(gaussianFilter);
     checkCuda(cudaFree(d_rgbaImage));
     checkCuda(cudaFree(d_blurRGBAImage));
+
+    timer.stop();
+
+    float timeElapsed = timer.elapsed();
+
+    std::cout << "Program finished in " << timeElapsed << " ms." << std::endl;
 
     return 0;
 }
